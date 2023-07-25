@@ -94,8 +94,9 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
-    } else {
+      //description = 'Go to move #' + move;
+    }
+    else {
       description = 'Go to game start';
     }
     return (
@@ -106,13 +107,19 @@ export default function Game() {
   });
 
   return (
-    <div className="game">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+    <div className="flex justify-center items-center flex-col text-slate-100 h-screen bg-gradient-to-b from-zinc-900 to-zinc-950 ">
+      <div className="flex justify-center items-center flex-col bg-navy rounded-lg shadow-lg shadow-navy h-96 w-96">
+        <div className="">
+          Tic Tac Toe
+        </div>
+        <div className="m-10">
+          <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+        </div>
+        <div className="box-border border-solid border-2 border-purple">
+          <ol>{moves}</ol>
+        </div>
       </div>
-      <div className="game-info">
-        <ol>{moves}</ol>
-      </div>
+
     </div>
   );
 }
